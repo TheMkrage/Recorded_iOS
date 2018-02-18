@@ -13,6 +13,7 @@ class WeekViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     
     var week: Week!
+    var images = [UIImage]()
     
     func getFilteredDays() -> [Day] {
         return week.days.filter { (day) -> Bool in
@@ -22,6 +23,7 @@ class WeekViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if let newWeek = WeekStore.shared.getWeek(week: self.week) {
             self.week = newWeek
+            self.images = [UIImage]()
             self.table.reloadData()
         }
     }
@@ -48,7 +50,13 @@ extension WeekViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let day = self.getFilteredDays()[indexPath.row]
-        cell.cloudImageView.image = day.getCloudImage()
+        if indexPath.row < self.images.count {
+            cell.cloudImageView.image = self.images[indexPath.row]
+        } else {
+            let transImage = day.getCloudImage()?.giveTransparentBackground()
+            self.images.append(transImage!)
+            cell.cloudImageView.image = transImage
+        }
         cell.dayLabel.text = day.date.toLongFormattedString()
         if day.width != 0 {
             cell.aspectRatio.constant = CGFloat(day.width / day.height)

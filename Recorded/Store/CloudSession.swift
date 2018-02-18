@@ -20,7 +20,7 @@ struct CloudSession {
             print(response.value)
             print(response.error)
             guard let dict = response.value as? [String: AnyObject] else {
-                fatalError()
+                return
             }
             let jsonDecoder = JSONDecoder()
             do {
