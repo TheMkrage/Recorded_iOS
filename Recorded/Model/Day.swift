@@ -8,19 +8,17 @@
 
 import UIKit
 
-struct Day: Codable {
-    var cloudImageBase64: String
-    var date: Date
-    var text: String
-    var width: Double
-    var height: Double
-    
-    func getCloudImage() -> UIImage? {
-        guard self.cloudImageBase64 != "", let data = Data.init(base64Encoded: self.cloudImageBase64) else {
-            return nil
+extension UIImage {
+    func toBase64() -> String {
+        let image = self
+        guard let imgData = UIImageJPEGRepresentation(image, 0.2) else {
+            return ""
         }
-        var image = UIImage(data: data)!
-        image = UIImage(data: UIImageJPEGRepresentation(image, 1.0)!)!
+        return imgData.base64EncodedString()
+    }
+    
+    func giveTransparentBackground() -> UIImage {
+        var image = UIImage(data: UIImageJPEGRepresentation(self, 1.0)!)!
         let rawImageRef: CGImage = image.cgImage!
         
         let colorMasking: [CGFloat] = [222, 255, 222, 255, 222, 255]
@@ -33,8 +31,26 @@ struct Day: Codable {
         
         UIGraphicsGetCurrentContext()!.draw(maskedImageRef!, in: CGRect.init(x: 0, y: 0, width: image.size.width, height: image.size.height))
         let result = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-       return result!
+        UIGraphicsEndImageContext()
+        return result!
+    }
+}
+
+struct Day: Codable {
+    var cloudImageBase64: String
+    var date: Date
+    var text: String
+    var width: Double
+    var height: Double
+    
+    func getCloudImage() -> UIImage? {
+        let data = Data.init(base64Encoded: self.cloudImageBase64)
+        var image: UIImage!
+        if self.cloudImageBase64 == "" {
+            image = #imageLiteral(resourceName: "Screen Shot 2018-02-18 at 4.11.35 AM")
+        } else {
+            image = UIImage(data: data!)!
+        }
+        return image
     }
 }

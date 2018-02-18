@@ -25,6 +25,9 @@
 		7EBBFF932039369100D260B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF922039369100D260B1 /* Date+Extension.swift */; };
 		7EBBFF972039728500D260B1 /* DayDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF962039728500D260B1 /* DayDto.swift */; };
 		7EBBFF992039792500D260B1 /* PaperTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF982039792500D260B1 /* PaperTextView.swift */; };
+		7EBBFF9B2039A0A600D260B1 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF9A2039A0A600D260B1 /* UIColor+Extension.swift */; };
+		7EBBFF9D2039A16E00D260B1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EBBFF9C2039A16E00D260B1 /* icon.png */; };
+		7EBBFF9F2039AB0A00D260B1 /* Navigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF9E2039AB0A00D260B1 /* Navigation+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		7EBBFF922039369100D260B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7EBBFF962039728500D260B1 /* DayDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDto.swift; sourceTree = "<group>"; };
 		7EBBFF982039792500D260B1 /* PaperTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperTextView.swift; sourceTree = "<group>"; };
+		7EBBFF9A2039A0A600D260B1 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7EBBFF9C2039A16E00D260B1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		7EBBFF9E2039AB0A00D260B1 /* Navigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Extension.swift"; sourceTree = "<group>"; };
 		DCCB895F330BD2873AF83000 /* Pods-Recorded.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recorded.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recorded/Pods-Recorded.debug.xcconfig"; sourceTree = "<group>"; };
 		E843CB6CD7AD2F78D9F7F022 /* Pods-Recorded.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recorded.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recorded/Pods-Recorded.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +110,7 @@
 				7EBBFF862039312300D260B1 /* Model */,
 				7EBBFF7F2039305400D260B1 /* VC's */,
 				7EBBFF982039792500D260B1 /* PaperTextView.swift */,
+				7EBBFF9C2039A16E00D260B1 /* icon.png */,
 			);
 			path = Recorded;
 			sourceTree = "<group>";
@@ -151,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				7EBBFF922039369100D260B1 /* Date+Extension.swift */,
+				7EBBFF9A2039A0A600D260B1 /* UIColor+Extension.swift */,
+				7EBBFF9E2039AB0A00D260B1 /* Navigation+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -226,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EBBFF9D2039A16E00D260B1 /* icon.png in Resources */,
 				7EBBFF7220392D2200D260B1 /* LaunchScreen.storyboard in Resources */,
 				7EBBFF6F20392D2200D260B1 /* Assets.xcassets in Resources */,
 				7EBBFF6D20392D2200D260B1 /* Main.storyboard in Resources */,
@@ -296,9 +306,11 @@
 				7EBBFF932039369100D260B1 /* Date+Extension.swift in Sources */,
 				7EBBFF832039311C00D260B1 /* Day.swift in Sources */,
 				7EBBFF902039318B00D260B1 /* WeekStore.swift in Sources */,
+				7EBBFF9B2039A0A600D260B1 /* UIColor+Extension.swift in Sources */,
 				7EBBFF7C2039304400D260B1 /* WeekViewController.swift in Sources */,
 				7EBBFF81203930A400D260B1 /* CloudSession.swift in Sources */,
 				7EBBFF8E2039318500D260B1 /* DayStore.swift in Sources */,
+				7EBBFF9F2039AB0A00D260B1 /* Navigation+Extension.swift in Sources */,
 				7EBBFF992039792500D260B1 /* PaperTextView.swift in Sources */,
 				7EBBFF7A2039303900D260B1 /* HomeViewController.swift in Sources */,
 			);

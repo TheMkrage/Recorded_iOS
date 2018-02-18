@@ -22,20 +22,27 @@ class DayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reload()
+        HoundVoiceSearch.instance().enableSpeech = false
     }
     
     func reload() {
         self.cloudImage.image = self.day.getCloudImage()
         self.textView.text = self.day.text
-        self.dateLabel.text = self.day.date.toFormattedString()
+        self.dateLabel.text = self.day.date.toFullMonthFormattedString()
         if day.width != 0 {
             self.aspectRatio.constant = CGFloat(self.day.width / self.day.height)
         }
         WeekStore.shared.save(day: self.day)
     }
     
+    @IBAction func dismiss() {
+        self.navigationController?.queueUnCurl()
+        self.navigationController?.popViewController(animated: false)
+    }
+    
     @IBAction func trash() {
         self.day.text = ""
+        self.day.cloudImageBase64 = ""
         self.reload()
     }
 }
@@ -51,7 +58,7 @@ extension DayViewController {
                 } else if let dictionary = dictionary {
                     print(dictionary)
                 }
-                
+                Houndify.instance().dismissListeningViewController(animated: true, completionHandler: nil)
                 guard let serverData = response as? HoundDataHoundServer,
                     let choice = serverData.disambiguation?.choiceData,
                     let commandResult = serverData.allResults?.firstObject() as? HoundDataCommandResult,
@@ -65,13 +72,16 @@ extension DayViewController {
                     self.day.text = self.textView.text + "\n" + transcription
                     self.textView.text = self.textView.text + "\n" + transcription
                     CloudSession.shared.getImage(text: self.day.text, callback: { (dto) in
-                        self.day.cloudImageBase64 = dto.img_str
+                        
+                        let data = Data.init(base64Encoded: dto.img_str)
+                        var image = UIImage(data: data!)!
+                        
+                        self.day.cloudImageBase64 = image.giveTransparentBackground().toBase64()
                         self.day.height = dto.height
                         self.day.width = dto.width
                         self.reload()
                     })
                 }
-                Houndify.instance().dismissListeningViewController(animated: true, completionHandler: nil)
             }
         )
     }

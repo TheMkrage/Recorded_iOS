@@ -20,10 +20,23 @@ class HomeViewController: UIViewController {
         print(weeks.count)
         let navigationBar = navigationController!.navigationBar
         navigationBar.shadowImage = UIImage()
+        self.recordTodayButton.layer.cornerRadius = 10.0
+        self.recordTodayButton.layer.backgroundColor = UIColor.init(hex: "9395D3").cgColor
+        self.recordTodayButton.setTitleColor(UIColor.init(hex: "FBF9FF"), for: .normal)
     }
 
     @IBAction func recordTodayButtonPressed(_ sender: UIButton) {
-        
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "Day") as? DayViewController else {
+            return
+        }
+        let thisWeek = self.weeks[0]
+        for day in thisWeek.days {
+            if day.date.toString() == Date().toString() {
+                vc.day = day
+            }
+        }
+        self.navigationController?.queueCurl()
+        self.show(vc, sender: self)
     }
 }
 
@@ -46,6 +59,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         vc.week = self.weeks[indexPath.row]
+        self.navigationController?.queueCurl()
         self.show(vc, sender: self)
     }
 }

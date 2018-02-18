@@ -29,7 +29,19 @@ extension Date {
     
     func toFormattedString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, yyyy"
+        formatter.dateFormat = "EEEE, MMM d"
+        return formatter.string(from: self)
+    }
+    
+    func toFullMonthFormattedString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMMM d"
+        return formatter.string(from: self)
+    }
+    
+    func toLongFormattedString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMMM d, yyyy"
         return formatter.string(from: self)
     }
 }
