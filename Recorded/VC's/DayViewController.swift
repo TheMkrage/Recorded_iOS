@@ -92,7 +92,7 @@ extension DayViewController {
         style.textColor = UIColor.black
         style.buttonTintColor = UIColor.init(hex: "#9395D3")
         style.ringColor = UIColor.purple
-        style.useWhiteAttribution = true
+        style.useWhiteAttribution = false
         //weak var helpTarget: Any?
         //var helpSelector: Selector?
         style.titleText = "Listening..."
@@ -101,12 +101,16 @@ extension DayViewController {
         style.hintSubtitleText = ""
         //style.backgroundOverlayColor = UIColor.clear
         self.textBeforeRecordingBegan = self.textView.text
-        
+        self.notEnoughLabel.text = "Listening... Oh that sounds interesting"
+        self.view.isUserInteractionEnabled = false
         Houndify.instance().presentListeningViewController(in: self, from: nil, style: style, requestInfo: [:], responseHandler:
             
             { (error: Error?, response: Any?, dictionary: [String : Any]?, requestInfo: [String : Any]?) in
+                self.view.isUserInteractionEnabled = true
+                self.notEnoughLabel.text = "I have an idea!\nCreating word cloud..."
                 if let error = error as NSError? {
                     print("\(error.domain) \(error.code) \(error.localizedDescription)")
+                    self.notEnoughLabel.text = "Max API Calls today :("
                 } else if let dictionary = dictionary {
                     print(dictionary)
                 }
@@ -122,8 +126,8 @@ extension DayViewController {
                 }
                 if transcription != "" && transcription.count > 5 {
                     
-                    self.day.text = self.textBeforeRecordingBegan + "\n" + transcription
-                    self.textView.text = self.textBeforeRecordingBegan + "\n" + transcription
+                    self.day.text = self.textBeforeRecordingBegan + "\n" + transcription + "."
+                    self.textView.text = self.textBeforeRecordingBegan + "\n" + transcription  + "."
                     CloudSession.shared.getImage(text: self.day.text, callback: { (dto) in
                         
                         let data = Data.init(base64Encoded: dto.img_str)

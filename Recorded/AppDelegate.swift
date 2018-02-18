@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Hound.setClientID("sN4GmVrWyAcU51QIsT9fsw==")
-        Hound.setClientID("4myL5EcMiCXeLX1xWsE2cQ==")
+        Hound.setClientID("_f-2JvKB6tG1xnUF7AxGkg==")
         //Hound.setClientKey("fqs_hV0T2V4fSAbtp0dbS62RTkGTqF_CBkDG1Pyy5_EUqpvAcVDvElE_rzM02REsVsQpTrqYSS8RXyE_Zc5Pwg==")
-        Hound.setClientKey("dGMEBZC2O606m0ZolSB8BtS0uELTT-BrdDWpyb_Ga1Qbr1gkesWBShf-jcSFs8mNY8g_9mzapjgZFayAVrZipw==")
+        Hound.setClientKey("0BjRE-7LbyECA4M0r9UGsUtvyH0TUOvsG1UYnkhOrbBufbHUy7C6CY42y-PsG45gyLeVRG1yJTHtgpqgB0lT5A==")
         
         UINavigationBar.appearance().tintColor = UIColor.clear
         UINavigationBar.appearance().setBackgroundImage(#imageLiteral(resourceName: "Groupfdasf").resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 85, 0), resizingMode: .stretch), for: .default)
