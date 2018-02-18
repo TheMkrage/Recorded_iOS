@@ -10,26 +10,37 @@ import UIKit
 
 class WeekViewController: UIViewController {
 
+    @IBOutlet weak var table: UITableView!
+    
+    var week: Week!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension WeekViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.week.days.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = self.table.dequeueReusableCell(withIdentifier: "Day") as? DayTableViewCell else {
+            return UITableViewCell()
+        }
+        let day = self.week.days[indexPath.row]
+        cell.cloudImageView.image = day.getCloudImage()
+        cell.dayLabel.text = day.date.toFormattedString()
+        return cell
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "Day") else {
+            return
+        }
+        
+        
+    }
 }

@@ -8,6 +8,15 @@
 
 import UIKit
 
-class Day: NSObject {
-
+struct Day: Codable {
+    var cloudImageBase64: String
+    var date: Date
+    var text: String
+    
+    func getCloudImage() -> UIImage? {
+        guard self.cloudImageBase64 != "", let data = Data.init(base64Encoded: self.cloudImageBase64) else {
+            return nil
+        }
+        return UIImage(data: data)
+    }
 }

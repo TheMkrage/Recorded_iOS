@@ -8,6 +8,11 @@
 
 import UIKit
 
-class Week: NSObject {
+struct Week: Codable {
+    var days: [Day] // days in order from newest saturday to oldest sunday
 
+    func getFormattedDateRangeString() -> String {
+        let dateString = "\(self.days[6].date.toFormattedString()) - \(self.days[0].date.toFormattedString())"
+        return dateString
+    }
 }
