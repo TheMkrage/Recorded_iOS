@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import HoundifySDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        Hound.setClientID("sN4GmVrWyAcU51QIsT9fsw==")
+    Hound.setClientKey("fqs_hV0T2V4fSAbtp0dbS62RTkGTqF_CBkDG1Pyy5_EUqpvAcVDvElE_rzM02REsVsQpTrqYSS8RXyE_Zc5Pwg==")
+        #imageLiteral(resourceName: "Groupfdasf")
+        UINavigationBar.appearance().setBackgroundImage(#imageLiteral(resourceName: "Groupfdasf").resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 85, 0), resizingMode: .stretch), for: .default)
         return true
     }
 

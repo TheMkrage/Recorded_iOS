@@ -12,14 +12,14 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var recordTodayButton: UIButton!
-    
     var weeks = [Week]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.weeks = WeekStore.shared.getLatestWeeks()
         print(weeks.count)
-        // Do any additional setup after loading the view.
+        let navigationBar = navigationController!.navigationBar
+        navigationBar.shadowImage = UIImage()
     }
 
     @IBAction func recordTodayButtonPressed(_ sender: UIButton) {

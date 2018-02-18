@@ -14,6 +14,13 @@ class WeekViewController: UIViewController {
     
     var week: Week!
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let newWeek = WeekStore.shared.getWeek(week: self.week) {
+            self.week = newWeek
+            self.table.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,14 +40,17 @@ extension WeekViewController: UITableViewDelegate, UITableViewDataSource {
         let day = self.week.days[indexPath.row]
         cell.cloudImageView.image = day.getCloudImage()
         cell.dayLabel.text = day.date.toFormattedString()
+        if day.width != 0 {
+            cell.aspectRatio.constant = CGFloat(day.width / day.height)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "Day") else {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "Day") as? DayViewController else {
             return
         }
-        
-        
+        vc.day = self.week.days[indexPath.row]
+        self.show(vc, sender: self)
     }
 }

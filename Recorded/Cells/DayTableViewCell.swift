@@ -10,8 +10,7 @@ import UIKit
 
 class DayTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var heightImage: NSLayoutConstraint!
-    @IBOutlet weak var widthImage: NSLayoutConstraint!
+    @IBOutlet weak var aspectRatio: NSLayoutConstraint!
     
     @IBOutlet weak var cloudImageView: UIImageView!
     @IBOutlet weak var dayLabel: UILabel!

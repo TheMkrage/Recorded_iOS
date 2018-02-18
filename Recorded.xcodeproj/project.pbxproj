@@ -23,6 +23,8 @@
 		7EBBFF8E2039318500D260B1 /* DayStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF8D2039318500D260B1 /* DayStore.swift */; };
 		7EBBFF902039318B00D260B1 /* WeekStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF8F2039318B00D260B1 /* WeekStore.swift */; };
 		7EBBFF932039369100D260B1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF922039369100D260B1 /* Date+Extension.swift */; };
+		7EBBFF972039728500D260B1 /* DayDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF962039728500D260B1 /* DayDto.swift */; };
+		7EBBFF992039792500D260B1 /* PaperTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBBFF982039792500D260B1 /* PaperTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		7EBBFF8D2039318500D260B1 /* DayStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStore.swift; sourceTree = "<group>"; };
 		7EBBFF8F2039318B00D260B1 /* WeekStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStore.swift; sourceTree = "<group>"; };
 		7EBBFF922039369100D260B1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		7EBBFF962039728500D260B1 /* DayDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDto.swift; sourceTree = "<group>"; };
+		7EBBFF982039792500D260B1 /* PaperTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperTextView.swift; sourceTree = "<group>"; };
 		DCCB895F330BD2873AF83000 /* Pods-Recorded.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recorded.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recorded/Pods-Recorded.debug.xcconfig"; sourceTree = "<group>"; };
 		E843CB6CD7AD2F78D9F7F022 /* Pods-Recorded.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recorded.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recorded/Pods-Recorded.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +103,7 @@
 				7EBBFF8B2039315600D260B1 /* Cells */,
 				7EBBFF862039312300D260B1 /* Model */,
 				7EBBFF7F2039305400D260B1 /* VC's */,
+				7EBBFF982039792500D260B1 /* PaperTextView.swift */,
 			);
 			path = Recorded;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			children = (
 				7EBBFF822039311C00D260B1 /* Day.swift */,
 				7EBBFF842039312100D260B1 /* Week.swift */,
+				7EBBFF962039728500D260B1 /* DayDto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EBBFF972039728500D260B1 /* DayDto.swift in Sources */,
 				7EBBFF7E2039304B00D260B1 /* DayViewController.swift in Sources */,
 				7EBBFF6820392D2200D260B1 /* AppDelegate.swift in Sources */,
 				7EBBFF882039314B00D260B1 /* DayTableViewCell.swift in Sources */,
@@ -292,6 +299,7 @@
 				7EBBFF7C2039304400D260B1 /* WeekViewController.swift in Sources */,
 				7EBBFF81203930A400D260B1 /* CloudSession.swift in Sources */,
 				7EBBFF8E2039318500D260B1 /* DayStore.swift in Sources */,
+				7EBBFF992039792500D260B1 /* PaperTextView.swift in Sources */,
 				7EBBFF7A2039303900D260B1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
